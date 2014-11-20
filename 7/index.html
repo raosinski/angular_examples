@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html ng-app="helloApp">
+  <head>
+    <title>Example 6</title>
+    <meta charset="UTF-8">
+    <script src="../js/libs/angular.js/angular.js"></script>
+    <script>
+      var nameApp = angular.module('helloApp', []);
+      nameApp.controller('HelloCtrl', function ($scope, $http){
+        $http.get('../json/hello.json').success(function(data) {
+          $scope.hello = data;
+        });
+      });
+    </script>
+  </head>
+  <body ng-controller="HelloCtrl">
+    <ul>
+      <li ng-repeat="el in hello">
+        {{el.word}}
+      </li>
+    </ul>
+  </body>
+</html>

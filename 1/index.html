@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+
+<html ng-app>
+  <head>
+    <title>Example 1</title>
+    <meta charset="UTF-8">
+    <script src="../js/libs/angular.js/angular.js"></script>
+    <script>
+      function HelloCtrl($scope){
+        $scope.hello = 'Hello world!';
+      }
+    </script>
+  </head>
+  <body ng-controller="HelloCtrl">
+    {{hello}}
+  </body>
+</html>
