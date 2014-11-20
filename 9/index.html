@@ -2,7 +2,7 @@
 
 <html ng-app="cityApp">
   <head>
-    <title>Example 8</title>
+    <title>Example 9</title>
     <meta charset="UTF-8">
     <script src="../js/libs/angular.js/angular.js"></script>
     <script>
@@ -11,14 +11,16 @@
         $http.get('../json/city.json').success(function(data) {
           $scope.city = data;
         });
+        
+        $scope.reverse = false;
       });
     </script>
   </head>
   <body ng-controller="CityCtrl">
     <input type="text" ng-model="search">
     <ul>
-      <!-- Przykład innego filtru "| orderBy:'city'" kiedy odwrotna kolejność: "| orderBy:'-city'" -->
-      <li ng-repeat="el in city | filter:search">
+      <li ng-click="reverse = !reverse">Miasto</li>
+      <li ng-repeat="el in city | filter:search | orderBy:'city':reverse">
         {{el.id}}
         -
         {{el.city}}

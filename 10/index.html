@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html ng-app="itemsApp">
+  <head>
+    <title>Example 10</title>
+    <meta charset="UTF-8">
+    <script src="../js/libs/angular.js/angular.js"></script>
+    <script>
+      var nameApp = angular.module('itemsApp', []);
+      nameApp.controller('ItemsCtrl', function ($scope, $http){
+        $http.get('../json/items.json').success(function(data) {
+          $scope.items = data;
+        });
+      });
+    </script>
+  </head>
+  <body ng-controller="ItemsCtrl">
+    <ul>
+      <li ng-repeat="el in items">
+        {{el.name}}
+        <img ng-src="{{el.img}}" alt="">
+      </li>
+    </ul>
+    <p>źródła obrazków: <a href="http://wikipedia.org" target="_blank">Wikipedia</a></p>
+  </body>
+</html>
